@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>reddit clone</title>
+  </head>
+  <body>
+    <h1>Welcome to Reddit</h1><h6>clone</h6>
+    <section class="submit-link">
+      <form action="/add-link" method="post">
+        <div>
+          <label for="url">Url</label>
+          <input type="text" name="url" value="">
+        </div>
+        <div>
+          <label for="title">Title</label>
+          <input type="text" name="title" value="">
+        </div>
+        <button>Submit</button>
+      </form>
+    </section>
+    <main>
+      {{#each data}}
+      <form class="upvote" action="/upvote/{{this.id}}" method="post">
+        <button>^</button>
+      </form>
+      <span class="votes">{{this.votes}}</span><span class="title"><a href="{{this.url}}">{{this.title}}</a></span>
+      <form class="downvote" action="/downvote/{{this.id}}" method="post">
+        <button>v</button>
+      </form>
+
+      {{/each}}
+    </main>
+  </body>
+</html>
